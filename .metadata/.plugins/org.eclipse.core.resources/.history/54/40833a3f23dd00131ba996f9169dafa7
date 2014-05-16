@@ -1,0 +1,141 @@
+package datastructures;
+
+import static org.junit.Assert.*;
+import junit.framework.Assert;
+
+import org.junit.Test;
+
+public class TestUserArrayList {
+	
+	private String str1 = "1";
+	private String str2 = "2";
+	private String str3 = "3";
+	
+	@Test
+	public void testAdd() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		ual.add(str2);
+		ual.add(str3);
+		Assert.assertTrue(ual.size() == 3);
+	}
+	
+	@Test
+	public void testClear() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		ual.add(str2);
+		ual.add(str3);
+		Assert.assertTrue(ual.size() == 3);
+		ual.clear();
+		Assert.assertTrue(ual.size() == 0);
+	}
+	
+	@Test
+	public void testContains() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		ual.add(str2);
+		ual.add(str3);
+		Assert.assertTrue(ual.contains(str1));
+		Assert.assertTrue(ual.contains(str2));
+		Assert.assertTrue(ual.contains(str3));
+		Assert.assertFalse(ual.contains("4"));
+	}
+	
+	@Test
+	public void testGet() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		ual.add(str2);
+		ual.add(str3);
+		Assert.assertEquals(ual.get(0), str1);
+		Assert.assertEquals(ual.get(1), str2);
+		Assert.assertEquals(ual.get(2), str3);
+		try {
+			ual.get(ual.size() + 1);
+			fail("Must throw an exception");
+		} catch(IndexOutOfBoundsException iex) {
+			
+		}
+	}
+	
+	@Test
+	public void testIndexOf() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		ual.add(str2);
+		ual.add(str3);
+		Assert.assertTrue(ual.indexOf(str1) == 0);
+		Assert.assertTrue(ual.indexOf(str2) == 1);
+		Assert.assertTrue(ual.indexOf(str3) == 2);
+		Assert.assertTrue(ual.indexOf("") == -1);
+	}
+	
+	@Test
+	public void testLastIndexOf() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		ual.add(str2);
+		ual.add(str3);
+		ual.add(str1);
+		Assert.assertTrue(ual.lastIndexOf(str1) == ual.size()-1);
+	}
+	
+	@Test
+	public void testIsEmpty() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		Assert.assertTrue(ual.isEmpty());
+		ual.add(str1);
+		Assert.assertFalse(ual.isEmpty());
+		ual.clear();
+		Assert.assertTrue(ual.isEmpty());
+	}
+	
+	@Test
+	public void testRemove() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		ual.add(str2);
+		ual.add(str3);
+		Assert.assertTrue(ual.size() == 3);
+		Assert.assertTrue(ual.contains(str3));
+		ual.remove(2);
+		Assert.assertTrue(ual.size() == 2);
+		Assert.assertFalse(ual.contains(str3));
+		ual.remove(0);
+		Assert.assertTrue(ual.size() == 1);
+		Assert.assertFalse(ual.contains(str1));
+		Assert.assertTrue(ual.contains(str2));
+	}
+	
+	@Test
+	public void testSet() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		ual.add(str1);
+		Assert.assertEquals(ual.get(0), str1);
+		ual.set(0, str3);
+		Assert.assertEquals(ual.get(0), str3);
+		try {
+			ual.set(1, str3);
+			fail("Must throw an exception");
+		} catch(IndexOutOfBoundsException ex) {
+			
+		}
+		
+	}
+	
+	@Test
+	public void testSize() {
+		UserArrayList<String> ual = new UserArrayList<String>();
+		Assert.assertTrue(ual.size() == 0);		
+		ual.add(str1);
+		Assert.assertTrue(ual.size() == 1);		
+		ual.add(str1);
+		Assert.assertTrue(ual.size() == 2);	
+		ual.add(str1);
+		Assert.assertTrue(ual.size() == 3);		
+		ual.clear();
+		Assert.assertTrue(ual.size() == 0);		
+	}
+}

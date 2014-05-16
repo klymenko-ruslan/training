@@ -1,0 +1,110 @@
+package dataStructures;
+
+import java.util.Arrays;
+
+public class UserMap<K,V> {
+	private K keys[];
+	private V values[];
+	private int N = 0;
+	
+	public UserMap() {
+		clear();
+	}
+	
+	public void put(K key, V value) {
+		if(containsKey(key)) {
+			return ;
+		}
+		if(N + 1 > keys.length - 1) {
+			resize(N * 2);
+		}
+		K [] tmpKeys = Arrays.copyOf(keys,keys.length);
+		V [] tmpValues = Arrays.copyOf(values,values.length);
+		keys = (K[]) new Object[N+1];
+		values = (V[]) new Object[N+1];
+		keys = Arrays.copyOf(tmpKeys,tmpKeys.length);
+		values = Arrays.copyOf(tmpValues,tmpValues.length);
+		keys[N] = key;
+		values[N] = value;
+		N++;
+	}
+	
+	public V get(String key) {
+		for(int i = 0; i < keys.length; i++) {
+			if(keys[i] != null && keys[i].equals(key)) {
+				return values[i];
+			}
+		}
+		return null;
+	}
+	
+	public int size() {
+		return N;
+	}
+	
+	public boolean isEmpty() {
+		return N == 0;
+	}
+	
+	public void remove(K key) {
+		for(int i = 0; i < keys.length; i++) {
+			if(keys[i] != null && keys[i].equals(key)) {
+				System.arraycopy(keys, i+1, keys, i, N - i);
+				keys[N] = null;
+				System.arraycopy(values, i+1, values, i, N - i);
+				values[N] = null;
+				N--;
+				break;
+			}
+		}
+	}
+	
+	public boolean containsKey(K key) {
+		for(K current : keys) {
+			if(current != null && current.equals(key)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean containsValue(V value) {
+		for(V current : values) {
+			if(current != null && current.equals(value)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public UserSet keySet() {
+		UserSet uSet = new UserSet();
+		for(K key : keys) {
+		//	if(key == null) {
+		//		break;
+		//	}
+			uSet.add(key);
+		}
+		return uSet;
+	}
+	
+/**	public UserArrayList values() {
+		
+	}
+	*/
+	
+	public void clear() {
+		keys = (K[]) new Object[4];
+		values = (V[]) new Object[4];
+		N = 0;
+	}
+	
+	private void resize(int size) {
+		K tmpKeys [] = keys;
+		keys = (K[]) new Object[size];
+		System.arraycopy(tmpKeys, 0, keys, 0, tmpKeys.length);
+		V tmpValues [] = values;
+		values = (V[]) new Object[size];
+		System.arraycopy(tmpValues, 0, values, 0, tmpValues.length);
+	}
+}

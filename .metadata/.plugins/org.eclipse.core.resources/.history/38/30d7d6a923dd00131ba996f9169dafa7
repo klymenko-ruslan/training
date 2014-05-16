@@ -1,0 +1,47 @@
+package dataStructures;
+
+import java.util.Iterator;
+
+public class UserLinkedList<T> implements Iterable{
+	private Node first;
+	private class Node {
+		Node nextNode;
+		T data;
+	}
+	
+	public void add(T element) {
+		Node oldFirst = first;
+		first = new Node();
+		first.data = element;
+		first.nextNode = oldFirst;
+		
+	}
+
+	@Override
+	public Iterator iterator() {
+		return new UIterator();
+	}
+	
+	private class UIterator implements Iterator {
+
+		@Override
+		public boolean hasNext() {
+			
+			return first != null;
+		}
+
+		@Override
+		public Object next() {
+			Node c = first.nextNode;
+			first  = first.nextNode;
+			return c.data;
+		}
+
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+}

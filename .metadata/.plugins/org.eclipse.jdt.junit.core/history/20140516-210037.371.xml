@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestUserArrayList" project="training" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="dataStructures.TestUserArrayList" time="0.003">
+    <testcase name="testAdd" classname="dataStructures.TestUserArrayList" time="0.003"/>
+    <testcase name="testClear" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testContains" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testGet" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testIndexOf" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testLastIndexOf" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testIsEmpty" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testRemove" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testSet" classname="dataStructures.TestUserArrayList" time="0.0"/>
+    <testcase name="testSize" classname="dataStructures.TestUserArrayList" time="0.0"/>
+  </testsuite>
+</testrun>

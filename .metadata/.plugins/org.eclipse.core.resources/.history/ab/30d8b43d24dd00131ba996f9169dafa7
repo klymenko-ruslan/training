@@ -1,0 +1,9 @@
+package dataStructures;
+
+public class Main {
+	public static void main(String [] args) {
+		UserSet<String> set = new UserSet<String>();
+		set.add("str");
+		System.out.println(set.contains("str"));
+	}
+}

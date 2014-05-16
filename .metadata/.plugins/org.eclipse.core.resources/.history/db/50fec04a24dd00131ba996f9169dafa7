@@ -1,0 +1,9 @@
+package dataStructures;
+
+public class Main {
+	public static void main(String [] args) {
+		UserMap<String,String> set = new UserMap<String,String>();
+		set.add("str");
+		System.out.println(set.contains("str"));keySet
+	}
+}

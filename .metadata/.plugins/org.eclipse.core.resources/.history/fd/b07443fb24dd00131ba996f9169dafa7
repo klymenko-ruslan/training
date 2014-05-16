@@ -1,0 +1,128 @@
+package dataStructures;
+
+import static org.junit.Assert.*;
+import junit.framework.Assert;
+
+import org.junit.Test;
+
+public class TestUserMap {
+	
+	private String str1 = "1";
+	private String str2 = "2";
+	private String str3 = "3";
+	
+	private Integer int1 = 1;
+	private Integer int2 = 2;
+	private Integer int3 = 3;
+	
+	@Test
+	public void testPut() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		ual.put(str1,int1);
+		ual.put(str2,int2);
+		ual.put(str3,int3);
+		Assert.assertTrue(ual.size() == 3);
+	}
+	
+	@Test
+	public void testGet() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		ual.put(str1,int1);
+		ual.put(str2,int2);
+		ual.put(str3,int3);
+		Assert.assertEquals(ual.get(str1), int1);
+		Assert.assertEquals(ual.get(str2), int2);
+		Assert.assertEquals(ual.get(str3), int3);
+		Assert.assertEquals(ual.get(""), null);
+	}
+	
+	@Test
+	public void testClear() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		ual.put(str1,int1);
+		ual.put(str2,int2);
+		ual.put(str3,int3);
+		Assert.assertTrue(ual.size() == 3);
+		ual.clear();
+		Assert.assertTrue(ual.size() == 0);
+	}
+	
+	@Test
+	public void testContainsKey() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		ual.put(str1,int1);
+		ual.put(str2,int2);
+		ual.put(str3,int3);
+		Assert.assertTrue(ual.containsKey(str1));
+		Assert.assertTrue(ual.containsKey(str2));
+		Assert.assertTrue(ual.containsKey(str3));
+		Assert.assertFalse(ual.containsKey("4"));
+	}
+	
+	@Test
+	public void testContainsValue() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		ual.put(str1,int1);
+		ual.put(str2,int2);
+		ual.put(str3,int3);
+		Assert.assertTrue(ual.containsValue(int1));
+		Assert.assertTrue(ual.containsValue(int2));
+		Assert.assertTrue(ual.containsValue(int3));
+		Assert.assertFalse(ual.containsValue(4));
+	}
+	
+	@Test
+	public void testIsEmpty() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		Assert.assertTrue(ual.isEmpty());
+		ual.put(str1, int1);
+		Assert.assertFalse(ual.isEmpty());
+		ual.clear();
+		Assert.assertTrue(ual.isEmpty());
+	}
+	
+	@Test
+	public void testRemove() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		ual.put(str1,int1);
+		ual.put(str2,int2);
+		ual.put(str3,int3);
+		Assert.assertTrue(ual.size() == 3);
+		Assert.assertTrue(ual.containsKey(str3));
+		ual.remove(str3);
+		Assert.assertTrue(ual.size() == 2);
+		Assert.assertFalse(ual.containsKey(str3));
+		ual.remove(str1);
+		Assert.assertTrue(ual.size() == 1);
+		Assert.assertFalse(ual.containsKey(str1));
+		Assert.assertTrue(ual.containsKey(str2));
+	}
+	
+	@Test
+	public void testSize() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		Assert.assertTrue(ual.size() == 0);		
+		ual.put(str1,int1);
+		Assert.assertTrue(ual.size() == 1);		
+		ual.put(str2,int2);
+		Assert.assertTrue(ual.size() == 2);	
+		ual.put(str3,int3);
+		Assert.assertTrue(ual.size() == 3);
+		ual.put(str1,int1);
+		Assert.assertTrue(ual.size() == 3);
+		ual.clear();
+		Assert.assertTrue(ual.size() == 0);		
+	}
+	
+	@Test
+	public void testKeySet() {
+		UserMap<String, Integer> ual = new UserMap<String, Integer>();
+		ual.put(str1,int1);
+		ual.put(str2,int2);
+		ual.put(str3,int3);
+		UserSet<String> str = new UserSet<String>();
+		str = set.keySet();
+		for(String s : str)
+		System.out.println(s);	
+	}
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestUserMap" project="training" tests="9" started="9" failures="0" errors="0" ignored="0">
+  <testsuite name="dataStructures.TestUserMap" time="0.002">
+    <testcase name="testPut" classname="dataStructures.TestUserMap" time="0.0"/>
+    <testcase name="testGet" classname="dataStructures.TestUserMap" time="0.0"/>
+    <testcase name="testClear" classname="dataStructures.TestUserMap" time="0.0"/>
+    <testcase name="testContainsKey" classname="dataStructures.TestUserMap" time="0.0"/>
+    <testcase name="testIsEmpty" classname="dataStructures.TestUserMap" time="0.0"/>
+    <testcase name="testRemove" classname="dataStructures.TestUserMap" time="0.0"/>
+    <testcase name="testSize" classname="dataStructures.TestUserMap" time="0.0"/>
+    <testcase name="testKeySet" classname="dataStructures.TestUserMap" time="0.002"/>
+    <testcase name="testContainsValue" classname="dataStructures.TestUserMap" time="0.0"/>
+  </testsuite>
+</testrun>

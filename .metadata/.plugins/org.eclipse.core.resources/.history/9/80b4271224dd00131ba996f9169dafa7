@@ -1,0 +1,88 @@
+package dataStructures;
+
+public class UserArrayList<T> {
+	private T list [];
+	private int N;
+	
+	public UserArrayList() {
+		clear();
+	}
+	
+	public boolean add(T obj) {
+		if(N+1 == list.length) {
+			resize(N * 2);
+		}
+		list[N++] = obj;
+		return true;
+	}
+	
+	public void clear() {
+		list = (T []) new Object[4];
+		N = 0;
+	}
+	
+	public boolean contains(T obj) {
+		for(T current : list) {
+			if(current != null && current.equals(obj)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public T get(int index) {
+		if(list[index] == null) {
+			throw new IndexOutOfBoundsException("Index: "+ index +", Size: " + N);
+		}
+		return list[index];
+	}
+	
+	public int indexOf(T obj) {
+		for(int i = 0; i < list.length; i++) {
+			if(list[i] != null && list[i].equals(obj)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public int lastIndexOf(T obj) {
+		for(int i = list.length - 1; i  >= 0; i--) {
+			if(list[i] != null && list[i].equals(obj)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public boolean isEmpty(){
+		return N == 0;
+	}
+	
+	public void remove(int index) {
+		System.arraycopy(list, index+1, list, index, N - index);
+		list[N--] = null;
+	}
+	
+	public void set(int index, T value) {
+		if(list[index] == null) {
+			throw new IndexOutOfBoundsException("Index: "+ index +", Size: " + N);
+		}
+		list[index] = value;
+	}
+	
+	public int size() {
+		return N;
+	}
+	
+	public T [] toArray() {
+		
+		return  null;
+	}
+	
+	private void resize(int size) {
+		T tmpList [] = list;
+		list = (T[]) new Object[size];
+		System.arraycopy(tmpList, 0, list, 0, tmpList.length);
+	}
+}

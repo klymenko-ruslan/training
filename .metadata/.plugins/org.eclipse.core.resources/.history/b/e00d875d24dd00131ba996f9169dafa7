@@ -1,0 +1,11 @@
+package dataStructures;
+
+public class Main {
+	public static void main(String [] args) {
+		UserMap<String,String> set = new UserMap<String,String>();
+		set.put("str","1");
+		set.put("st2r","12");
+		set.put("st3r","13");
+		System.out.println();keySet
+	}
+}
